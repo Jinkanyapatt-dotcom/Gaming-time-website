@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaming Time & Academic Achievement</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;
+  color:#172033;
+  background:#f6f8fc;
+  line-height:1.7
+}
+nav{
+  position:sticky;top:0;z-index:10;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #e7eaf0;
+  display:flex;justify-content:center;gap:8px;
+  padding:10px;flex-wrap:wrap
+}
+nav a{
+  text-decoration:none;color:#475569;padding:7px 12px;
+  border-radius:10px;font-size:14px
+}
+nav a:hover{background:#eef2ff;color:#4f46e5}
+.hero{
+  min-height:76vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:70px 20px;
+  background:
+    radial-gradient(circle at 15% 20%,#c7d2fe 0,transparent 28%),
+    radial-gradient(circle at 85% 30%,#bfdbfe 0,transparent 30%),
+    linear-gradient(135deg,#eef2ff,#f8fafc 55%,#e0f2fe)
+}
+.hero-inner{max-width:950px}
+.badge{
+  display:inline-block;padding:6px 13px;border-radius:999px;
+  background:#fff;color:#4f46e5;font-weight:700;font-size:13px;
+  box-shadow:0 5px 20px rgba(15,23,42,.08)
+}
+h1{font-size:clamp(38px,7vw,76px);line-height:1.05;margin:20px 0 14px}
+.hero p{max-width:760px;margin:auto;color:#475569;font-size:18px}
+.btn{
+  display:inline-block;margin-top:28px;padding:12px 20px;
+  border-radius:12px;background:#4f46e5;color:white;
+  text-decoration:none;font-weight:700
+}
+section{max-width:1100px;margin:auto;padding:70px 20px}
+.section-title{font-size:32px;margin:0 0 10px}
+.section-sub{color:#64748b;margin-top:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.card{
+  background:white;border:1px solid #e8ebf2;border-radius:18px;
+  padding:23px;box-shadow:0 8px 25px rgba(15,23,42,.05)
+}
+.card h3{margin-top:0}
+.icon{font-size:30px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}
+.stat{
+  background:#172554;color:white;border-radius:18px;padding:22px
+}
+.stat strong{display:block;font-size:30px}
+.timeline{border-left:3px solid #818cf8;margin-left:10px;padding-left:24px}
+.step{position:relative;margin:0 0 27px}
+.step:before{
+  content:"";position:absolute;left:-34px;top:7px;width:13px;height:13px;
+  border-radius:50%;background:#6366f1;border:4px solid #e0e7ff
+}
+.form-card{
+  background:white;border-radius:20px;padding:25px;
+  border:1px solid #e5e7eb;box-shadow:0 8px 25px rgba(15,23,42,.05)
+}
+label{font-weight:650;display:block;margin-top:14px}
+input,textarea{
+  width:100%;padding:11px 12px;margin-top:6px;
+  border:1px solid #cbd5e1;border-radius:10px;font:inherit
+}
+textarea{min-height:90px;resize:vertical}
+button{
+  border:0;background:#4f46e5;color:#fff;padding:12px 18px;
+  border-radius:10px;font-weight:700;margin-top:18px;cursor:pointer
+}
+.result{margin-top:15px;padding:12px;border-radius:10px;background:#eef2ff;display:none}
+footer{text-align:center;padding:35px 20px;background:#111827;color:#cbd5e1}
+small{color:#64748b}
+@media(max-width:600px){nav a{font-size:12px;padding:6px 8px}.hero p{font-size:16px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#home">หน้าแรก</a>
+  <a href="#about">ที่มา</a>
+  <a href="#objectives">วัตถุประสงค์</a>
+  <a href="#method">วิธีดำเนินงาน</a>
+  <a href="#math">คณิตศาสตร์</a>
+  <a href="#survey">แบบสอบถาม</a>
+</nav>
+
+<header class="hero" id="home">
+  <div class="hero-inner">
+    <span class="badge">โครงงานคณิตศาสตร์ประยุกต์</span>
+    <h1>เวลาเล่นเกม<br>กับผลการเรียน</h1>
+    <p>
+      การศึกษาความสัมพันธ์ระหว่างเวลาเล่นเกมกับผลการเรียน
+      ของนักเรียนระดับมัธยมศึกษาตอนปลาย
+    </p>
+    <a class="btn" href="#about">ดูโครงงาน</a>
+  </div>
+</header>
+
+<section id="about">
+  <h2 class="section-title">ความเป็นมาและความสำคัญ</h2>
+  <p class="section-sub">ทำไมเราจึงสนใจเรื่องนี้</p>
+  <div class="card">
+    <p>
+      ปัจจุบันการเล่นเกมออนไลน์ได้รับความนิยมอย่างแพร่หลายในกลุ่มนักเรียน
+      ระดับมัธยมศึกษาตอนปลาย นักเรียนใช้เวลาเล่นเกมแตกต่างกัน
+      บางคนเล่นเพื่อผ่อนคลาย ขณะที่บางคนเล่นเป็นเวลานาน
+      ซึ่งอาจส่งผลต่อการเรียน การบริหารเวลา และการพักผ่อน
+    </p>
+    <p>
+      โครงงานนี้จึงศึกษาว่าเวลาเล่นเกมมีความสัมพันธ์กับผลการเรียนมากน้อยเพียงใด
+      โดยใช้สถิติ การสร้างกราฟ การวิเคราะห์ความสัมพันธ์ ค่าเฉลี่ย
+      ส่วนเบี่ยงเบนมาตรฐาน และสมการเส้นตรง
+    </p>
+  </div>
+</section>
+
+<section id="objectives">
+  <h2 class="section-title">วัตถุประสงค์</h2>
+  <div class="grid">
+    <div class="card"><div class="icon">🎮</div><h3>01</h3><p>ศึกษาพฤติกรรมการเล่นเกมของนักเรียนระดับมัธยมศึกษาตอนปลาย</p></div>
+    <div class="card"><div class="icon">📊</div><h3>02</h3><p>ศึกษาความสัมพันธ์ระหว่างเวลาเล่นเกมกับผลการเรียนเฉลี่ย (GPA)</p></div>
+    <div class="card"><div class="icon">🧮</div><h3>03</h3><p>ประยุกต์ใช้ความรู้ทางสถิติในการวิเคราะห์ข้อมูลจริง</p></div>
+    <div class="card"><div class="icon">⏰</div><h3>04</h3><p>สร้างข้อเสนอแนะเกี่ยวกับการบริหารเวลาเล่นเกมให้เหมาะสม</p></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">ขอบเขตโครงงาน</h2>
+  <div class="stats">
+    <div class="stat"><small>กลุ่มตัวอย่าง</small><strong>40 คน</strong>นักเรียนชั้น ม.5</div>
+    <div class="stat"><small>ข้อมูลหลัก</small><strong>2 ตัวแปร</strong>ชั่วโมงเล่นเกมต่อวัน และ GPA</div>
+    <div class="stat"><small>ระยะเวลา</small><strong>ก.ค.–ก.ย.</strong>พ.ศ. 2569</div>
+    <div class="stat"><small>เครื่องมือ</small><strong>4 โปรแกรม</strong>Forms, Excel, SPSS, Python</div>
+  </div>
+</section>
+
+<section id="math">
+  <h2 class="section-title">คณิตศาสตร์ที่ใช้</h2>
+  <div class="grid">
+    <div class="card"><h3>สถิติเชิงพรรณนา</h3><p>ใช้สรุปและอธิบายภาพรวมของข้อมูลที่เก็บได้</p></div>
+    <div class="card"><h3>ค่าเฉลี่ย</h3><p>ใช้หาค่ากลางของเวลาเล่นเกมและ GPA</p></div>
+    <div class="card"><h3>ส่วนเบี่ยงเบนมาตรฐาน</h3><p>ใช้ดูการกระจายตัวของข้อมูล</p></div>
+    <div class="card"><h3>Pearson Correlation</h3><p>ใช้หาค่า r เพื่อดูความสัมพันธ์และทิศทางระหว่างเวลาเล่นเกมกับ GPA</p></div>
+    <div class="card"><h3>Linear Regression</h3><p>สร้างสมการเส้นตรง Y = a + bX เพื่อสร้างแบบจำลองความสัมพันธ์</p></div>
+    <div class="card"><h3>Scatter Plot</h3><p>สร้างกราฟกระจายเพื่อช่วยมองเห็นรูปแบบความสัมพันธ์ของข้อมูล</p></div>
+  </div>
+</section>
+
+<section id="method">
+  <h2 class="section-title">วิธีดำเนินงาน</h2>
+  <div class="timeline">
+    <div class="step"><h3>1. ศึกษาเอกสาร</h3><p>ศึกษาเอกสารและงานวิจัยที่เกี่ยวข้อง</p></div>
+    <div class="step"><h3>2. ออกแบบแบบสอบถาม</h3><p>สร้างคำถามสำหรับเก็บข้อมูลจากนักเรียน</p></div>
+    <div class="step"><h3>3. เก็บข้อมูล</h3><p>เก็บข้อมูลจากนักเรียนกลุ่มตัวอย่าง</p></div>
+    <div class="step"><h3>4. ตรวจสอบข้อมูล</h3><p>ตรวจสอบความถูกต้องของข้อมูลที่ได้รับ</p></div>
+    <div class="step"><h3>5. คำนวณและวิเคราะห์</h3><p>คำนวณสถิติ สร้าง Scatter Plot และวิเคราะห์ความสัมพันธ์</p></div>
+    <div class="step"><h3>6. สรุปผล</h3><p>สรุปและอภิปรายผล พร้อมสร้างข้อเสนอแนะ</p></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">ตัวแปรในการศึกษา</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>X, ตัวแปรอิสระ</h3>
+      <p><strong>จำนวนชั่วโมงการเล่นเกมต่อวัน</strong></p>
+    </div>
+    <div class="card">
+      <h3>Y, ตัวแปรตาม</h3>
+      <p><strong>ผลการเรียนเฉลี่ย (GPA)</strong></p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:18px">
+    <h3>สมการถดถอยเชิงเส้น</h3>
+    <p style="font-size:24px;text-align:center"><strong>Y = a + bX</strong></p>
+    <p>ใช้สร้างแบบจำลองความสัมพันธ์ระหว่างชั่วโมงเล่นเกมกับ GPA</p>
+  </div>
+</section>
+
+<section id="survey">
+  <h2 class="section-title">แบบสอบถาม</h2>
+  <p class="section-sub">คำถามที่ใช้เก็บข้อมูล</p>
+  <div class="form-card">
+    <ol>
+      <li>โดยเฉลี่ยใน 1 วัน รวมวันธรรมดาและเสาร์-อาทิตย์ คุณใช้เวลาเล่นเกมกี่ชั่วโมง</li>
+      <li>ระบุเกรดเฉลี่ยสะสมล่าสุดของคุณ</li>
+      <li>ช่วงเวลาที่ท่านมักเล่นเกมและครั้งละนานเท่าไหร่</li>
+      <li>คุณแบ่งเวลาหรือจัดลำดับความสำคัญระหว่างการเล่นเกม การอ่านหนังสือ และการทำการบ้านอย่างไรในแต่ละวัน</li>
+      <li>คุณคิดว่าการเล่นเกมส่งผลกระทบต่อผลการเรียน สมาธิ หรือการอ่านหนังสือของคุณอย่างไรบ้าง ทั้งด้านดีและด้านเสีย</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">ทดลองกรอกข้อมูล</h2>
+  <div class="form-card">
+    <label>ชั่วโมงเล่นเกมต่อวัน</label>
+    <input id="hours" type="number" min="0" step="0.1" placeholder="เช่น 3">
+    <label>GPA ล่าสุด</label>
+    <input id="gpa" type="number" min="0" max="4" step="0.01" placeholder="เช่น 3.25">
+    <button onclick="checkData()">ตรวจสอบข้อมูล</button>
+    <div id="result" class="result"></div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>A Study of the Relationship Between Gaming Time and Academic Achievement of Senior High School Students</strong></p>
+  <p>ผู้จัดทำ: นาย จิณณ์กันยพัชร์ จุนแสง, นาย ญาณวุฒิ พรเสนา, นาย ศุภณัฐ ทะนวนรัมย์</p>
+  <p>ครูที่ปรึกษา: ครูสุสรรค์ ไชโยรักษ์</p>
+</footer>
+
+<script>
+function checkData(){
+  const h = Number(document.getElementById("hours").value);
+  const g = Number(document.getElementById("gpa").value);
+  const r = document.getElementById("result");
+  r.style.display = "block";
+  if(!Number.isFinite(h) || !Number.isFinite(g) || h < 0 || g < 0 || g > 4){
+    r.textContent = "กรุณากรอกข้อมูลให้ถูกต้อง โดย GPA อยู่ระหว่าง 0 ถึง 4";
+    return;
+  }
+  r.textContent = `บันทึกข้อมูลตัวอย่าง: เล่นเกม ${h} ชั่วโมง/วัน และ GPA ${g.toFixed(2)} คะแนน ข้อมูลนี้ยังไม่ใช่ผลการวิเคราะห์ความสัมพันธ์`;
+}
+</script>
+</body>
+</html>
